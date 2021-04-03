@@ -13,7 +13,7 @@ public class UserController {
     {
         count++;
         System.out.println("API got hit "+count);
-        return "HELLO BALLU HERE";
+        return "HELLO HERE";
 
     }
 }
