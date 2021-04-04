@@ -9,11 +9,15 @@ import java.util.HashMap;
 public class UserController {
     public int count=0;
     @RequestMapping(value = "/trying",method = RequestMethod.GET)
-    public String getUsers()
+    public HashMap<String,String> getUsers()
     {
         count++;
         System.out.println("API got hit "+count);
-        return "HELLO HERE";
+        HashMap<String,String> hm=new HashMap<>();
+        hm.put("username","Baljinder");
+        hm.put("mobile","9780796694");
+        hm.put("password","Baljinder@123");
+        return hm;
 
     }
 }
