@@ -1,27 +1,54 @@
+function loaded()
+{
+    var xhttp1 = new XMLHttpRequest();
+    xhttp1.open("GET", "http://localhost:8080/trying", true);
+    xhttp1.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var list=JSON.parse(this.responseText);
+
+            for(var i=0;i<list.length;i++)
+            {
+
+                ADDuser(list[i]);
+            }
+
+        }
+    };
+    xhttp1.send();
+
+}
+
+
+
 function AJAXCALL()
 {
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://localhost:8080/trying", true);
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            ADDuser(this);
+
         }
     };
-    var Name=document.getElementById("Name").value;
-    var mob_no=document.getElementById("mob_no").value;
-    var email=document.getElementById("email").value;
-    var data_send={
+  var Name=document.getElementById("Name").value;
+  var mob_no=document.getElementById("mob_no").value;
+  var email=document.getElementById("email").value;
 
-    }
-    xhttp.send(
+    var json={
+        "name":Name,
+        "mobile_no":mob_no,
+        "email":email,
+    };
+    xhttp.send(JSON.stringify(json));
+loaded();
 
-    );
+
 }
 
 
-function ADDuser(data) {
 
-    var resultdata=JSON.parse(data.responseText);
+
+function ADDuser(data) {
+var resultdata=data;
 
 
 
@@ -48,13 +75,13 @@ function ADDuser(data) {
             alert("Please enter your email");
 //return false;
         }
-*/
 
+*/
 //return true;
 
-    var Name=resultdata.username;
-    var mob_no=resultdata.mobile;
-    var email=resultdata.password;
+    var Name=resultdata.name;
+    var mob_no=resultdata.mobile_no;
+    var email=resultdata.email;
 
     //creat a table
     var table=document.getElementById("result_table");
