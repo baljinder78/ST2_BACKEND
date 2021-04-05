@@ -9,6 +9,10 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Id")
+    private Integer id;
+
+
     @Column(name = "Name")
     private String Name;
 
@@ -21,7 +25,8 @@ public class User {
     public User() {
     }
 
-    public User(String name, String email, String mobile_no) {
+    public User(Integer id,String name, String email, String mobile_no) {
+        this.id=id;
         Name = name;
         Email = email;
         Mobile_no = mobile_no;

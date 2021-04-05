@@ -1,3 +1,4 @@
+
 package com.fullstackapp.Trail.Repository;
 
 
@@ -19,6 +20,7 @@ public class UserRepostory {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         TypedQuery<User> query = entityManager.createQuery("SELECT u from User u",User.class);
         List<User> result = query.getResultList();
+        System.out.println(result);
         return result;
     }
 }

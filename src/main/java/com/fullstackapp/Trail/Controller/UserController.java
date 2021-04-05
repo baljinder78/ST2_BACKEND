@@ -25,9 +25,9 @@ public class UserController {
     @RequestMapping(value = "/trying",method = RequestMethod.POST)
     public void addnewuser(@RequestBody String data) throws JsonProcessingException {
 
-
         User user = new ObjectMapper().readValue(data, User.class);
         System.out.println(user.toString());
+
     }
 
     @RequestMapping(value = "/trying",method = RequestMethod.GET)
@@ -53,9 +53,6 @@ public class UserController {
         System.out.println(userList);
         return userList;
 
-
-
-
-    }
+   }
 
 }
