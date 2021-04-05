@@ -23,4 +23,19 @@ public class UserRepostory {
         System.out.println(result);
         return result;
     }
+
+
+    public void adduser(User newuser)
+    {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+            entityManager.persist(newuser);
+            transaction.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            transaction.rollback();
+        }
+    }
 }

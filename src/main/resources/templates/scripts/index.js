@@ -1,3 +1,8 @@
+var table=document.getElementById("result_table");
+
+var tr = document.createElement("TR");
+
+
 function loaded()
 {
     var xhttp1 = new XMLHttpRequest();
@@ -8,7 +13,7 @@ function loaded()
             for(var i=0;i<list.length;i++)
             {
 
-                ADDuser(list[i]);
+                users(list[i]);
             }
 
         }
@@ -17,7 +22,7 @@ function loaded()
 
 }
 
-/*
+
 function AJAXCALL()
 {
     var xhttp = new XMLHttpRequest();
@@ -37,16 +42,23 @@ function AJAXCALL()
         "email":email,
     };
     xhttp.send(JSON.stringify(json));
-loaded();
+    ADDdataonload(Name,mob_no,email);
 
 
 }
 
-*/
+function users(data)
+{
+    var resultdata=data;
+    var Name=resultdata.name;
+    var mob_no=resultdata.mobile_no;
+    var email=resultdata.email;
+    ADDdataonload(Name,mob_no,email);
+}
 
 
-function ADDuser(data) {
-var resultdata=data;
+function ADDdataonload(Name,mob_no,email) {
+
 
 
 
@@ -77,15 +89,10 @@ var resultdata=data;
 */
 //return true;
 
-    var Name=resultdata.name;
-    var mob_no=resultdata.mobile_no;
-    var email=resultdata.email;
+
 
     //creat a table
-    var table=document.getElementById("result_table");
 
-
-        var tr = document.createElement("TR");
 
         var td = document.createElement("TD");
         var td_p_1 = document.createElement("P");
@@ -125,6 +132,10 @@ var resultdata=data;
         table.appendChild(tr);
 
 }
+
+
+
+
 
 function delete_user() {
 

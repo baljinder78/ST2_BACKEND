@@ -20,4 +20,10 @@ public class Userservice {
          return userRepostory.getallusers();
     }
 
+
+     public void createnewuser(User newuser)
+     {
+         userRepostory.adduser(newuser);
+     }
+
 }
