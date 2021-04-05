@@ -38,4 +38,20 @@ public class UserRepostory {
             transaction.rollback();
         }
     }
+
+
+    public void deleteuser(Integer id)
+    {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+            User user = entityManager.find(User.class, id);
+            entityManager.remove(user);
+            transaction.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            transaction.rollback();
+        }
+    }
 }

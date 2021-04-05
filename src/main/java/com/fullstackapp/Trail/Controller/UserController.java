@@ -41,4 +41,10 @@ public class UserController {
 
    }
 
+    @RequestMapping(value = "/trying",method = RequestMethod.DELETE)
+    public void deleteuser(@RequestParam(name = "Id") Integer id)
+    {
+        userservice.deleteuser(id);
+    }
+
 }

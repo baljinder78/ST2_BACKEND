@@ -26,4 +26,8 @@ public class Userservice {
          userRepostory.adduser(newuser);
      }
 
+    public void deleteuser(Integer id)
+    {
+        userRepostory.deleteuser(id);
+    }
 }
