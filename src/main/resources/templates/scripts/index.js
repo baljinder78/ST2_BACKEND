@@ -5,7 +5,6 @@ function loaded()
     xhttp1.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var list=JSON.parse(this.responseText);
-
             for(var i=0;i<list.length;i++)
             {
 
@@ -18,8 +17,7 @@ function loaded()
 
 }
 
-
-
+/*
 function AJAXCALL()
 {
     var xhttp = new XMLHttpRequest();
@@ -44,7 +42,7 @@ loaded();
 
 }
 
-
+*/
 
 
 function ADDuser(data) {
@@ -125,10 +123,6 @@ var resultdata=data;
         tr.appendChild(td_4);
 
         table.appendChild(tr);
-
-
-
-
 
 }
 

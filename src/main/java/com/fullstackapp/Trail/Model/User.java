@@ -1,9 +1,21 @@
 package com.fullstackapp.Trail.Model;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "allInfo")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Name")
     private String Name;
+
+    @Column(name = "Email")
     private String Email;
+
+    @Column(name = "M_number")
     private String Mobile_no;
 
     public User() {
