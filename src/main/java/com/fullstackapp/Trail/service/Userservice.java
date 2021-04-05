@@ -26,8 +26,8 @@ public class Userservice {
          userRepostory.adduser(newuser);
      }
 
-    public void deleteuser(Integer id)
+    public void deleteuser(String email)
     {
-        userRepostory.deleteuser(id);
+        userRepostory.deleteuser(email);
     }
 }

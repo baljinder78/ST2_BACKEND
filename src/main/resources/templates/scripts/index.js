@@ -55,11 +55,11 @@ function users(data)
     let m=resultdata.mobile_no;
      let e=resultdata.email;
     let id=resultdata.id;
-    ADDdataonload(N,m,e,id);
+    ADDdataonload(N,m,e);
 }
 
 
-function ADDdataonload(Name,mob_no,email,id) {
+function ADDdataonload(Name,mob_no,email) {
 
 
 
@@ -120,6 +120,7 @@ function ADDdataonload(Name,mob_no,email,id) {
     let inp_3 = document.createTextNode(email);
         td_p_3.appendChild(inp_3);
         td_p_3.setAttribute("class", "imp");
+        td_p_3.setAttribute("id","eme");
         td_3.appendChild(td_p_3);
         tr.appendChild(td_3);
 
@@ -127,9 +128,8 @@ function ADDdataonload(Name,mob_no,email,id) {
     let delet = document.createElement("Button");
     let text_btn = document.createTextNode("Delete")
         delet.appendChild(text_btn);
-        delet.setAttribute("onclick", "delete_user()");
+        delet.setAttribute("onclick", "delete_user(this)");
         delet.setAttribute("class", "delete_btn");
-        delet.setAttribute("value",""+id+"");
         td_4.appendChild(delet);
 
         tr.appendChild(td_4);
@@ -142,7 +142,9 @@ function ADDdataonload(Name,mob_no,email,id) {
 
 
 
-function delete_user() {
+function delete_user(el) {
+
+   var email_data=el.parentNode.parentNode.querySelector("#eme").textContent;
 
     var td_d = event.target.parentNode;
     var tr_D = td_d.parentNode;
@@ -152,13 +154,10 @@ function delete_user() {
     xhttp1.open("DELETE", "http://localhost:8080/trying", true);
     xhttp1.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var list=JSON.parse(this.responseText);
-            for(var i=0;i<list.length;i++)
-            {
-            }
+
 
         }
     };
-    xhttp1.send();
+    xhttp1.send(email_data);
 
 }

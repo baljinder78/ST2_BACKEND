@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name = "allInfo")
 public class User {
 
-    @Id
+    //@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id")
     private Integer id;
@@ -16,7 +16,8 @@ public class User {
     @Column(name = "Name")
     private String Name;
 
-    @Column(name = "Email")
+    @Id
+    @Column(name = "Email",unique = true)
     private String Email;
 
     @Column(name = "M_number")

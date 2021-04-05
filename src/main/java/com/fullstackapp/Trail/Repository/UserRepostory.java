@@ -40,13 +40,13 @@ public class UserRepostory {
     }
 
 
-    public void deleteuser(Integer id)
+    public void deleteuser(String email)
     {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            User user = entityManager.find(User.class, id);
+            User user = entityManager.find(User.class, email);
             entityManager.remove(user);
             transaction.commit();
         } catch (Exception e) {
